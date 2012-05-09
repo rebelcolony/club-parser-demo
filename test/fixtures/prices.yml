@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  vip: 1
+  regular: 1
+  no_queue: 1
+  event_id: 1
+
+two:
+  vip: 1
+  regular: 1
+  no_queue: 1
+  event_id: 1

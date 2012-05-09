@@ -1,0 +1,47 @@
+<h1>Listing events</h1>
+
+<%= link_to 'Fetch data', fetch_events_path %>
+
+<table>
+  <tr>
+    <th rowspan="2"></th>
+    <th rowspan="2">Date</th>
+    <th rowspan="2">Title</th>
+    <th rowspan="2">Flyer</th>
+    <th colspan="3">Price</th>
+    <th rowspan="2">Places</th>
+    <th rowspan="2"></th>
+    <th rowspan="2"></th>
+    <th rowspan="2"></th>
+  </tr>
+  <tr>
+    <th>Regular</th>
+    <th>VIP</th>
+    <th>No Queue</th>
+  </tr>
+
+<% @events.each_with_index do |event, i| %>
+  <tr>
+    <td><%= i+1 %></td>
+    <td><%= event.date.to_formatted_s(:short) %></td>
+    <td><%= link_to event.title, event.url %></td>
+    <td><%= image_tag event.flyer, width: "100", height: "150" %></td>
+    <td><%= event.price.regular %></td>
+    <td><%= event.price.vip %></td>
+    <td><%= event.price.no_queue %></td>
+    <td>
+      <% event.places.each do |place| %>
+        <strong><%= place.title %></strong>
+        <p><%= place.lineup.gsub("\n", "<br/>").html_safe %></p>
+      <% end -%>
+    </td>
+    <td><%= link_to 'Show', event %></td>
+    <td><%= link_to 'Edit', edit_event_path(event) %></td>
+    <td><%= link_to 'Destroy', event, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Event', new_event_path %>

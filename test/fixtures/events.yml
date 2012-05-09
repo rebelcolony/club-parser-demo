@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  date: 2012-05-09 20:53:50
+  title: MyString
+  url: MyString
+  flyer: MyString
+
+two:
+  date: 2012-05-09 20:53:50
+  title: MyString
+  url: MyString
+  flyer: MyString

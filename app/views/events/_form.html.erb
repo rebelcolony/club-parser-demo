@@ -1,0 +1,57 @@
+<%= form_for(@event) do |f| %>
+  <% if @event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+      <ul>
+      <% @event.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :date %><br />
+    <%= f.date_select :date %>
+  </div>
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :url %><br />
+    <%= f.text_field :url %>
+  </div>
+  <div class="field">
+    <%= f.label :flyer %><br />
+    <%= f.text_field :flyer %>
+  </div>
+  <%= f.fields_for :price do |builder| -%>
+    <div class="field">
+      <%= builder.label :regular %>
+      <%= builder.text_field :regular %>
+    </div>
+    <div class="field">
+      <%= builder.label :vip %>
+      <%= builder.text_field :vip %>
+    </div>
+    <div class="field">
+      <%= builder.label :no_queue %>
+      <%= builder.text_field :no_queue %>
+    </div>
+  <% end -%>
+  <%= f.fields_for :places do |builder| %>
+    <div class="field">
+      <%= builder.label :title %>
+      <%= builder.text_field :title %>
+    </div>
+    <div class="field">
+      <%= builder.label :lineup %>
+      <%= builder.text_area :lineup %>
+    </div>
+  <% end -%>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
