@@ -25,14 +25,14 @@
     <td><%= i+1 %></td>
     <td><%= event.date.to_formatted_s(:short) %></td>
     <td><%= link_to event.title, event.url %></td>
-    <td><%= image_tag event.flyer, width: "100", height: "150" %></td>
+    <td><%= image_tag event.flyer, width: "100", height: "150" if event.flyer %></td>
     <td><%= event.price.regular %></td>
     <td><%= event.price.vip %></td>
     <td><%= event.price.no_queue %></td>
     <td>
       <% event.places.each do |place| %>
         <strong><%= place.title %></strong>
-        <p><%= place.lineup.gsub("\n", "<br/>").html_safe %></p>
+        <p><%= place.lineup.gsub("\n", "<br/>").html_safe if place.lineup %></p>
       <% end -%>
     </td>
     <td><%= link_to 'Show', event %></td>

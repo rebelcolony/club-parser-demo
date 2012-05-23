@@ -1,8 +1,8 @@
 GIT
   remote: git@github.com:ivliaspiration/club-parser.git
-  revision: d663830ca7d9c5ab500ab4ee907971399822e28d
+  revision: 869c49402428dcbe66f37a45302486fbfd65303c
   specs:
-    club-parser (0.1.2.alpha)
+    club-parser (0.1.6.alpha)
       nokogiri
 
 GEM
@@ -116,7 +116,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  club-parser (~> 0.1.0.alpha)!
+  club-parser (~> 0.1.6.alpha)!
   coffee-rails (~> 3.2.1)
   delayed_job_active_record
   jquery-rails
